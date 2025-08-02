@@ -16,8 +16,6 @@ const getComputerChoice = function () {
 
 console.log(getComputerChoice());
 
-const getHumanChoice = function(){
-
  const getHumanChoice = function() {
     var userChoice = "";
     const userPrompt = prompt("Choose Rock, Paper, or Scissors");
@@ -35,6 +33,7 @@ const getHumanChoice = function(){
 
     return userChoice;
 };
-    }
+    
 
-console.log(getHumanChoice())
+    console.log(getHumanChoice());
+
