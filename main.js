@@ -1,7 +1,12 @@
-const getComputerChoice = function () {
+let humanScore = 0
+
+let computerScore = 0
+
+
+const getComputerChoice = () => {
     var choice = "";
     var random = Math.ceil(Math.random() * 3);
-    console.log(random);
+
     if (random === 1) {
         choice = "Rock";
     }
@@ -11,12 +16,12 @@ const getComputerChoice = function () {
     else {
         choice = "Scissors";
     }
+
+    // console.log(`Computer choice: ${choice}`)
     return choice;
 };
 
-console.log(getComputerChoice());
-
- const getHumanChoice = function() {
+ const getHumanChoice = () => {
     var userChoice = "";
     const userPrompt = prompt("Choose Rock, Paper, or Scissors");
 
@@ -31,9 +36,32 @@ console.log(getComputerChoice());
         return getHumanChoice(); 
     }
 
+    // console.log(`Human choice: ${userChoice}`);
     return userChoice;
 };
     
 
-    console.log(getHumanChoice());
 
+    const playRound = (humanChoice, computerChoice) => {
+
+        console.log("Human's choice: " + humanChoice);
+        console.log("Computer's choice: " + computerChoice);
+
+        if (humanChoice === computerChoice) {
+          console.log("It's a tie!");
+        } else if ((humanChoice === "rock" && computerChoice === "scissors") || (humanChoice === "paper" && computerChoice === "rock") || (humanChoice === "scissors" && computerChoice === "paper")) {
+          console.log("Human wins!");
+          humanScore++
+        } else {
+          console.log("Computer wins!");
+          computerScore++
+        }
+
+        console.log(`Human score: ${humanScore}`)
+        console.log(`Computer score: ${computerScore}`);
+    }
+
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
+
+    playRound(humanSelection, computerSelection);
